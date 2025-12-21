@@ -9,9 +9,10 @@ Salut, je suis Guérinda, étudiante en cybersécurité passionnée par les rés
 - Documenter mon parcours d'apprentissage
 
 ## Contenu
-- **Cours** : Introduction à la cybersécurité,Réseautique et Sécurité
+- **Cours** : Introduction à la cybersécurité; Réseautique et Sécurité;
 - **Travaux pratiques** 
-- **Projets** 
+- **Projets**
+- **Événements et communauté**: Ateliers de cybersécurité, Conférences techniques et Formations;
 
 ## Outils et technologies
 - Linux, Kali Linux
