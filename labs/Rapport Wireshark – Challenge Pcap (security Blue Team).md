@@ -1,8 +1,8 @@
 # Rapport d’analyse de trafic réseau – Wireshark
 
-**Challenge : PCAP 1 & PCAP 2**
-**Plateforme : Security Blue Team**
-**Outil principal : Wireshark**
+- **Challenge : PCAP 1 & PCAP 2**
+- **Plateforme : Security Blue Team**
+- **Outil principal : Wireshark**
 
 ---
 
