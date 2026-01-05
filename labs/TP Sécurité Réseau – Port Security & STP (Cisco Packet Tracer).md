@@ -94,39 +94,31 @@ La configuration n’avait pas été sauvegardée.
 `copy running-config startup-config
 `
 
-❌ Difficulté 3 : Confusion entre MAC sticky et MAC manuelle
+**Difficulté 3 :** Confusion entre MAC sticky et MAC manuelle
 
-La MAC sticky est apprise automatiquement
+- La MAC sticky est apprise automatiquement
+- La MAC manuelle doit être saisie explicitement (On recher l'address MAC de l'appareil connecté dans les paramètres de configuration sur cisco pt)
+- Les deux doivent être sauvegardées pour être persistantes
 
-La MAC manuelle doit être saisie explicitement
-
-Les deux doivent être sauvegardées pour être persistantes
-
-❌ Difficulté 4 : Compréhension du mode protect
+**Difficulté 4 :** Compréhension du mode protect
 
 Au départ, le mode protect semblait ne rien faire.
 
 Explication :
 
-protect bloque uniquement la MAC non autorisée
+- protect bloque uniquement la MAC non autorisée
+- Le port reste actif
+- Aucun message ni shutdown visible
 
-Le port reste actif
+## 7. Observations importantes
 
-Aucun message ni shutdown visible
+- Port Security agit au niveau du port
+- Une violation peut bloquer toute la communication, même vers des PC autorisés
+- Sticky MAC ≠ sauvegarde automatique
+- copy run start est indispensable en fin de configuration
+- Un seul PC par port est la meilleure pratique de sécurité
 
-7. Observations importantes
-
-Port Security agit au niveau du port
-
-Une violation peut bloquer toute la communication, même vers des PC autorisés
-
-Sticky MAC ≠ sauvegarde automatique
-
-copy run start est indispensable en fin de configuration
-
-Un seul PC par port est la meilleure pratique de sécurité
-
-8. Commandes de diagnostic utilisées
+## 8. Commandes de diagnostic utilisées
 
 `show port-security interface fa0/1
 show port-security address
@@ -134,27 +126,21 @@ show interface status err-disabled
 show mac address-table
 `
 
-9. Bonnes pratiques retenues
+## 9. Bonnes pratiques retenues
 
-1 port = 1 PC
+- 1 port = 1 PC
+- Utiliser sticky pour la flexibilité
+- Utiliser shutdown pour une sécurité stricte
+- Toujours sauvegarder la configuration
+- Activer PortFast et BPDU Guard sur les ports utilisateurs
 
-Utiliser sticky pour la flexibilité
+## 10. Conclusion
 
-Utiliser shutdown pour une sécurité stricte
-
-Toujours sauvegarder la configuration
-
-Activer PortFast et BPDU Guard sur les ports utilisateurs
-
-10. Conclusion
-
-Ce TP a permis de mieux comprendre le fonctionnement réel de Port Security et son impact sur la communication réseau.
+Ce TP m'a permis de mieux comprendre le fonctionnement réel de Port Security et son impact sur la communication réseau.
 Les difficultés rencontrées ont mis en évidence l’importance :
 
-du respect des règles de branchement
-
-de la sauvegarde de configuration
-
-et de l’analyse des messages de violation
+- du respect des règles de branchement
+- de la sauvegarde de configuration
+- et de l’analyse des messages de violation
 
 Ce TP renforce mes bases nécessaires à la sécurisation d’un réseau local.
