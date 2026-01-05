@@ -60,10 +60,13 @@ Switch(config)# interface fastEthernet0/1
 `Switch(config-if)# switchport port-security maximum 1
 `
 ### Étape 5 : Définir les MAC autorisées
+
 **MAC manuelle**
+
 `Switch(config-if)# switchport port-security mac-address 00:11:22:33:44:55
 `
 **MAC sticky**
+
 `Switch(config-if)# switchport port-security mac-address sticky
 `
 ### Étape 6 : Mode de violation
@@ -82,7 +85,9 @@ show interface status err-disabled
 `interface fa0/1
 shutdown
 no shutdown
-`** Ou automatique :**
+`
+** Ou automatique :**
+
 `errdisable recovery cause psecure-violation
 errdisable recovery interval 30
 `
