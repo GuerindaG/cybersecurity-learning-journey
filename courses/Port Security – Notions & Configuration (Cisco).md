@@ -63,8 +63,8 @@ Switch(config)# interface fastEthernet0/1
 
 **MAC manuelle**
 
-`Switch(config-if)# switchport port-security mac-address 00:11:22:33:44:55
-`
+`Switch(config-if)# switchport port-security mac-address 00:11:22:33:44:55`
+
 **MAC sticky**
 
 `Switch(config-if)# switchport port-security mac-address sticky
@@ -84,16 +84,28 @@ show interface status err-disabled
 ## 8. Réactivation d’un port bloqué
 `interface fa0/1
 shutdown
-no shutdown
-`
-** Ou automatique :**
+no shutdown`
+
+**Ou automatique**
 
 `errdisable recovery cause psecure-violation
 errdisable recovery interval 30
 `
-## 9. Bonnes pratiques
+## 9.Commande pour voir la table MAC
+`show mac address-table
+`
+Exemple de resultats : 
+Vlan    Mac Address       Type        Ports
+----    -----------       ----        -----
+ 10     0011.2233.4455    DYNAMIC     Fa0/1
+ 20     00aa.bbcc.ddee    STATIC      Fa0/2
+
+## 10. Bonnes pratiques
 - 1 PC = 1 port = 1 MAC
 - Utiliser sticky en production
 - Utiliser manuel en examen
 - Toujours sauvegarder la configuration
+- La table MAC est maintenue par le switch
+- Elle associe : MAC ↔ Port
+- Elle est différente de la table ARP (IP ↔ MAC)
 
