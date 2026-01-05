@@ -45,8 +45,6 @@ Le **Port Security** est une fonctionnalité des switchs (Cisco) qui permet de :
 ## 6. Configuration pas à pas (Cisco)
 
 ### Étape 1 : Accès à l’interface
-
-### Étape 1 : Accès à l’interface
 ```bash
 Switch(config)# interface fastEthernet0/1
 ```
