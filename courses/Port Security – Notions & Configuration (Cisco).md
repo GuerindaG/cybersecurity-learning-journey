@@ -45,29 +45,30 @@ Le **Port Security** est une fonctionnalité des switchs (Cisco) qui permet de :
 ## 6. Configuration pas à pas (Cisco)
 
 ### Étape 1 : Accès à l’interface
+
+### Étape 1 : Accès à l’interface
 ```bash
 Switch(config)# interface fastEthernet0/1
 ```
 
-### Étape 2 : Mode access
+### Étape 2 : Mode access
+
 `Switch(config-if)# switchport mode access
 `
+### Étape 3 : Activation du Port Security
 
-### Étape 3 : Activation du Port Security
 `Switch(config-if)# switchport port-security`
- 
-### Étape 4 : Limite du nombre de MAC
+ ### Étape 4 : Limite du nombre de MAC
 `Switch(config-if)# switchport port-security maximum 1
 `
-
-### Étape 5 : Définir les MAC autorisées
+### Étape 5 : Définir les MAC autorisées
 **MAC manuelle**
 `Switch(config-if)# switchport port-security mac-address 00:11:22:33:44:55
 `
 **MAC sticky**
 `Switch(config-if)# switchport port-security mac-address sticky
 `
-### Étape 6 : Mode de violation
+### Étape 6 : Mode de violation
 `Switch(config-if)# switchport port-security violation shutdown
 `
 ### Étape 7 : Sauvegarde
