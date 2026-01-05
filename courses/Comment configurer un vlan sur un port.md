@@ -1,4 +1,4 @@
-# commentconfigurer un vlan sur un port ?
+# Comment configurer un vlan sur un port ?
 
 ## 1. Accéder au mode de configuration globale :
 
