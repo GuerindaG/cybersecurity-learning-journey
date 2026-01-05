@@ -91,14 +91,14 @@ no shutdown`
 `errdisable recovery cause psecure-violation
 errdisable recovery interval 30
 `
-## 9.Commande pour voir la table MAC
+## 9. Commande pour voir la table MAC
 `show mac address-table
 `
-Exemple de resultats : 
-Vlan    Mac Address       Type        Ports
-----    -----------       ----        -----
- 10     0011.2233.4455    DYNAMIC     Fa0/1
- 20     00aa.bbcc.ddee    STATIC      Fa0/2
+| Vlan | Mac Address |Type | Ports |
+|----|----|----|----|
+| 10 | 0011.2233.4455 |DYNAMIC|  Fa0/1|
+| 20 | 00aa.bbcc.ddee |STATIC | Fa0/2|
+  
 
 ## 10. Bonnes pratiques
 - 1 PC = 1 port = 1 MAC
