@@ -112,9 +112,11 @@ Dans ce TP, cela n’impacte pas le fonctionnement du DHCP Snooping et l’optio
 ## 10. Tests de fonctionnement
 
 Sur les PC :
+
 `ipconfig /release
 ipconfig /renew
 `
+
 **Résultat attendu**
 
 - Attribution correcte d’une adresse IP
