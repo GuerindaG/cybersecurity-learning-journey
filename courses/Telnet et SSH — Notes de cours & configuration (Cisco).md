@@ -193,7 +193,7 @@ line vty 0 4
 
 ---
 
-## 🔎 Vérifications
+## Vérifications
 
 ```bash
 show ip ssh
@@ -233,7 +233,3 @@ ssh admin@192.168.1.1
 
 > **Toujours utiliser SSH en production**
 
-
----
-
-📌 *Document prêt pour GitHub / formation / TP CCNA / cybersécurité*
