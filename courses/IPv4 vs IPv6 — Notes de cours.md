@@ -1,10 +1,5 @@
 # IPv4 vs IPv6 — Notes de cours
 
-> Notes rédigées dans un langage simple et pédagogique, comme si j’expliquais le cours à quelqu’un.
-> Prêtes à être exportées sur **GitHub**.
-
----
-
 ## 1. Limites du protocole IPv4
 
 IPv4 (Internet Protocol version 4) est la première version largement utilisée du protocole IP. Malgré son succès historique, il présente aujourd’hui plusieurs **limites majeures** qui ont conduit à l’adoption d’IPv6.
