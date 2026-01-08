@@ -1,8 +1,8 @@
-# Telnet et SSH — Notes de cours & configuration (Cisco)
+# Telnet et SSH : Notes de cours & configuration (Cisco)
 
 ## Objectifs du cours
 
-ÊTRE capable de :
+Être capable de :
 
 * Comprendre le rôle de Telnet et SSH
 * Expliquer les différences de sécurité entre Telnet et SSH
