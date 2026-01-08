@@ -1,3 +1,3 @@
 # Travaux pratiques
 
-Travaux pratiques, exercices et tutoriels .
+TP transversaux ou indépendants des cours.
