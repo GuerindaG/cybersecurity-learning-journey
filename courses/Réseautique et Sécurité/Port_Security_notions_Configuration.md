@@ -1,4 +1,4 @@
-# Port Security – Notions et Configuration (Cisco)
+# Port Security : Notions et Configuration (Cisco)
 
 ## 1. Définition
 Le **Port Security** est une fonctionnalité des switchs (Cisco) qui permet de :
