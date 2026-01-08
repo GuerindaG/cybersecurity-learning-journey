@@ -1,5 +1,5 @@
 
-# Notions de base – Détection des masques IP
+# Détection des masques IP : notes de cours
 
 ## 1. Adresse IP
 Une adresse IP identifie un équipement sur un réseau.
@@ -91,7 +91,7 @@ Correspondance rapide :
 ---
 
 ## 8. Rappel important
-⚠ Le masque n’est pas contenu dans l’IP.  
+ Le masque n’est pas contenu dans l’IP.  
 Il est soit :
 - donné explicitement (/xx)
 - choisi par l’administrateur réseau
