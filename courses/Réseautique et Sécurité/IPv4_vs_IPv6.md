@@ -1,4 +1,4 @@
-# IPv4 vs IPv6 — Notes de cours
+# IPv4 vs IPv6 : Notes de cours
 
 ## 1. Limites du protocole IPv4
 
