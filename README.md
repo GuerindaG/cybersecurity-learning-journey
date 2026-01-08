@@ -23,7 +23,13 @@ Ce dépôt documente mon **parcours d’apprentissage en cybersécurité** à tr
 - Réseautique et sécurité des réseaux  
 - Cyberattaques et défense en entreprise  
 - Réponse aux incidents (Incident Response)  
-- Gouvernance de la cybersécurité  
+- Gouvernance de la cybersécurité
+
+Chaque cours est structuré dans un dossier dédié contenant :
+- des notes de cours
+- des travaux pratiques (Exercices)
+- des études de cas
+- des ressources complémentaires
 
 
 ### Travaux pratiques
