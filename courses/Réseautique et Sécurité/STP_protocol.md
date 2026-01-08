@@ -100,8 +100,11 @@ Messages STP échangés entre switchs contenant :
 ```bash
 spanning-tree portfast
 ```
-- Le port passe directement en Forwarding
-- Supprime les délais STP`
+- Le port passe directement en Forwarding :
+  technique réseau qui permet de rediriger les requêtes entrantes d'Internet
+  (sur un port spécifique du routeur) vers un appareil précis (ordinateur, console, caméra)
+  sur votre réseau local (LAN), en utilisant son adresse IP interne et son port dédié;
+- Supprime les délais STP`;
 
 ### Utilisation
 
