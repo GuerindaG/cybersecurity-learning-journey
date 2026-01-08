@@ -104,7 +104,11 @@ debug ip nat
 
 ## 8. Figures
 
-![Configuration NAT Cisco Packet Tracer](images/nat-configuration.png)
+![Configuration NAT Cisco Packet Tracer](images/nat.jpeg)
+
+![Configuration NAT Cisco Packet Tracer](images/nat2.jpeg)
+
+![Illustration NAT](images/eebedaad-b371-484c-9430-845355c4c8f0.png)
 
 ## 9. Résumé
 
