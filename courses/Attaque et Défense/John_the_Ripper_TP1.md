@@ -21,17 +21,9 @@ Ce lab a pour objectif de :
 
 ### 3.1 Détection automatique du type de hash
 ```bash
-john hash1.txt
+hashid hash1.txt
 ```
-
-**Description :**
-- John tente de détecter automatiquement le type de hash
-- Lance une attaque par défaut
-
-**Résultat :**
-- Hashes correctement chargés
-- Aucun mot de passe trouvé avec cette méthode
-
+Propose des types de hash du fichier, choisir le plus probable 
 ---
 
 ### 3.2 Erreur de casse dans l’option wordlist
