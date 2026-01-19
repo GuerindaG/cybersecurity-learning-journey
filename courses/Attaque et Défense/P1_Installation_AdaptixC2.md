@@ -3,15 +3,15 @@
 ## 1. Présentation générale
 
 AdaptixC2 est un **framework de type Command & Control (C2)** open-source conçu pour les **tests d’intrusion autorisés** et les opérations de **Red Team**.  
-Il permet de gérer des agents déployés sur des systèmes compromis, d’exécuter des commandes à distance, de transférer des fichiers, de naviguer dans le système de fichiers, de gérer des sessions, d’extraire des informations et beaucoup d’autres opérations post-exploitation.:contentReference[oaicite:0]{index=0}
+Il permet de gérer des agents déployés sur des systèmes compromis, d’exécuter des commandes à distance, de transférer des fichiers, de naviguer dans le système de fichiers, de gérer des sessions, d’extraire des informations et beaucoup d’autres opérations post-exploitation.
 
 Le framework se compose principalement de deux parties :
 - **AdaptixServer** : serveur écrit en Go (Golang) qui gère la communication avec les agents.
-- **AdaptixClient** : client graphique multiplateforme (Linux, Windows, macOS) écrit en C++/Qt permettant à l’opérateur de contrôler les agents et de visualiser les données.:contentReference[oaicite:1]{index=1}
+- **AdaptixClient** : client graphique multiplateforme (Linux, Windows, macOS) écrit en C++/Qt permettant à l’opérateur de contrôler les agents et de visualiser les données.
+  
+AdaptixC2 supporte une architecture **modulaire extensible** à l’aide de plugins appelés *extenders*. Il existe des extenders pour différents types de communications (HTTP/S, SMB, TCP, Gopher) et pour différents types d’agents/beacons.
 
-AdaptixC2 supporte une architecture **modulaire extensible** à l’aide de plugins appelés *extenders*. Il existe des extenders pour différents types de communications (HTTP/S, SMB, TCP, Gopher) et pour différents types d’agents/beacons.:contentReference[oaicite:2]{index=2}
-
-> **Note de sécurité légale :** AdaptixC2 est destiné à un usage **autorisé dans des environnements contrôlés** (laboratoire, tests d’intrusion avec permission). Son usage non autorisé peut enfreindre la loi.:contentReference[oaicite:3]{index=3}
+> **Note de sécurité légale :** AdaptixC2 est destiné à un usage **autorisé dans des environnements contrôlés** (laboratoire, tests d’intrusion avec permission). Son usage non autorisé peut enfreindre la loi.
 
 ---
 
@@ -23,15 +23,15 @@ AdaptixC2 sert principalement à :
 - **Simuler des attaques réelles** et tester la défense d’une infrastructure (capacité de détection et de réponse).
 - **Gérer des sessions multiples** d’agents/hosts compromis.
 - **Exécuter des tâches à distance** : commandes, fichiers, capture d’informations.
-- **Extensibilité** via des modules (*extenders*) pour ajouter de nouvelles fonctionnalités.:contentReference[oaicite:4]{index=4}
+- **Extensibilité** via des modules (*extenders*) pour ajouter de nouvelles fonctionnalités.
 
-Ce type de framework est comparable à d’autres outils utilisés en Red Team (par exemple Cobalt Strike), mais il est open-source.:contentReference[oaicite:5]{index=5}
+Ce type de framework est comparable à d’autres outils utilisés en Red Team (par exemple Cobalt Strike), mais il est open-source.
 
 ---
 
 ## 3. Installation (selon la documentation officielle)
 
-Les étapes principales pour installer AdaptixC2 sont les suivantes :​:contentReference[oaicite:6]{index=6}
+Les étapes principales pour installer AdaptixC2 sont les suivantes :
 
 ### 3.1. Récupération du code source
 
