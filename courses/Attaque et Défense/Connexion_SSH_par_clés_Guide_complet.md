@@ -180,6 +180,4 @@ ssh user@IP  --> vérification clé --> accès accordé
 * `ssh -i` : force l'utilisation d'une clé
 * Clé privée = secrète, clé publique = partageable
 
----
 
-**Document prêt à être utilisé pour cours, CTF, administration système ou cybersécurité.**
