@@ -1,78 +1,63 @@
-# Connexion SSH par clés – Guide complet
+# Connexion SSH par clé (Windows client → Kali serveur)
 
-Ce document récapitule **toutes les étapes pour générer une clé privée / clé publique SSH** et établir une connexion sécurisée à un serveur distant.
+Ce document résume **ce qui se passe à chaque étape**, le **rôle de chaque commande**, et **pourquoi SSH peut demander encore un mot de passe**.
+
+---
+## Qu'est ce que SSH ?
+
+Secure Socket Shell (SSH) est un protocole réseau qui permet d'accéder et de communiquer de manière sécurisée avec des machines distantes, principalement des serveurs distants. Cela signifie que vous pouvez vous connecter à un autre ordinateur directement depuis votre terminal. Une fois la connexion établie, toutes les commandes que vous saisissez dans votre terminal local sont exécutées sur le serveur distant.
+
+## 1. Architecture du scénario
+
+- **Machine cliente** : Windows  
+- **Machine serveur** : Kali Linux  
+- **Service** : OpenSSH  
+- **Méthode d’authentification** : clé asymétrique (ed25519)
 
 ---
 
-## 1. Prérequis
+## 2. Démarrage du serveur SSH (Kali)
 
-* Un client Linux / macOS / Kali (ou Windows avec OpenSSH)
-* Un serveur SSH accessible
-* Un compte utilisateur sur la machine distante
+```bash
+sudo systemctl enable ssh
+sudo systemctl start ssh
+sudo systemctl status ssh
+```
+
+### Ce qui se passe :
+- Le service SSH écoute sur le port 22
+- Kali est prêt à accepter des connexions distantes
 
 ---
 
-## 2. Génération de la paire de clés SSH (machine cliente)
+## 3. Génération de la clé SSH (Windows)
 
-### Méthode recommandée (ED25519)
-
-```bash
-ssh-keygen -t ed25519 -C "user@machine"
+```powershell
+ssh-keygen -t ed25519 -C "windows@client"
 ```
 
-### Alternative (RSA 4096 bits)
+### Ce qui se passe :
+- Une **clé privée** est créée (reste sur Windows)
+- Une **clé publique** est créée (sera copiée sur Kali)
 
-```bash
-ssh-keygen -t rsa -b 4096 -C "user@machine"
+Emplacement :
 ```
-
-### Déroulement
-
-1. Emplacement du fichier : appuyer sur **Entrée** pour le chemin par défaut
-2. Passphrase : recommandée pour plus de sécurité
-
-### Fichiers générés
-
-* **Clé privée** : `~/.ssh/id_ed25519`
-* **Clé publique** : `~/.ssh/id_ed25519.pub`
-
-> ⚠️ La clé privée ne doit **jamais** être partagée.
-
----
-
-## 3. Installation de la clé publique sur le serveur
-
-### Méthode 1 – Automatique (recommandée)
-
-```bash
-ssh-copy-id user@IP_CIBLE
-```
-
-Ou avec une clé spécifique :
-
-```bash
-ssh-copy-id -i ~/.ssh/id_ed25519.pub user@IP_CIBLE
-```
-
-La clé est ajoutée dans :
-
-```
-~/.ssh/authorized_keys
+C:\Users\USER\.ssh\
+├── id_ed25519      (clé privée)
+└── id_ed25519.pub  (clé publique)
 ```
 
 ---
 
-### Méthode 2 – Manuelle
+## 4. Copie de la clé publique vers Kali
 
-#### Sur le client
+### Affichage de la clé publique (Windows)
 
-```bash
-cat ~/.ssh/id_ed25519.pub
+```powershell
+type $env:USERPROFILE\.ssh\id_ed25519.pub
 ```
 
-Copier la clé publique.
-
-#### Sur le serveur
+### Installation sur Kali
 
 ```bash
 mkdir -p ~/.ssh
@@ -80,79 +65,85 @@ chmod 700 ~/.ssh
 nano ~/.ssh/authorized_keys
 ```
 
-Coller la clé publique puis :
+- Coller **UNE seule ligne** (clé publique)
 
 ```bash
 chmod 600 ~/.ssh/authorized_keys
+chown -R kali:kali ~/.ssh
 ```
+
+### Ce qui se passe :
+- Kali enregistre la clé autorisée pour l’utilisateur `kali`
+- SSH saura reconnaître le client par sa clé privée
 
 ---
 
-## 4. Permissions recommandées
-
-### Côté client
+## 5. Tentative de connexion SSH
 
 ```bash
-chmod 700 ~/.ssh
-chmod 600 ~/.ssh/id_ed25519
-chmod 644 ~/.ssh/id_ed25519.pub
+ssh kali@192.168.56.101
 ```
+
+### Cas 1 — Succès par clé
+- SSH trouve la clé
+- Authentification automatique
+- Pas de mot de passe système
+
+### Cas 2 — Mot de passe demandé
+- La clé est **proposée mais refusée**
+- SSH bascule vers l’authentification par mot de passe
 
 ---
 
-## 5. Connexion SSH avec clé
-
-### Connexion standard
+## 6. Analyse avec le mode debug
 
 ```bash
-ssh user@IP_CIBLE
+ssh -v kali@192.168.56.101
 ```
 
-### Forcer une clé spécifique
+### Ligne clé à analyser
 
-```bash
-ssh -i ~/.ssh/id_ed25519 user@IP_CIBLE
+```text
+Offering public key ...
+Server accepts key
+Authentication succeeded (publickey)
 ```
+
+- Si au lieu de ça :
+
+```text
+Authentications that can continue: publickey,password
+```
+
+- La clé est refusée (permissions, clé incorrecte, mauvais utilisateur)
 
 ---
 
-## 6. Utilisation de ssh-agent (optionnel mais recommandé)
+## 7. Causes fréquentes du refus de clé
 
-```bash
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/id_ed25519
-```
-
-La passphrase est saisie une seule fois.
-
----
-
-## 7. Dépannage (debug)
-
-Connexion en mode verbeux :
-
-```bash
-ssh -v user@IP_CIBLE
-```
-
-Messages attendus :
-
-* `Offering public key`
-* `Authentication succeeded`
+- Mauvaise clé dans `authorized_keys`
+- Permissions incorrectes
+- Mauvais propriétaire du fichier
+- Mauvais utilisateur SSH
+- SSHD mal configuré
 
 ---
 
-## 8. Sécurisation côté serveur (recommandée)
+## 8. Vérification de la configuration SSH (Kali)
 
-Fichier `/etc/ssh/sshd_config` :
+```bash
+sudo nano /etc/ssh/sshd_config
+```
 
-```conf
+Lignes requises :
+
+```ini
 PubkeyAuthentication yes
-PasswordAuthentication no
-PermitRootLogin no
+AuthorizedKeysFile .ssh/authorized_keys
+PasswordAuthentication yes
 ```
 
-Puis redémarrer SSH :
+Redémarrage :
 
 ```bash
 sudo systemctl restart ssh
@@ -160,24 +151,32 @@ sudo systemctl restart ssh
 
 ---
 
-## 9. Schéma de fonctionnement
+## 9. Sécurisation finale (après test réussi)
 
+```ini
+PasswordAuthentication no
 ```
-CLIENT                         SERVEUR
-ssh-keygen
-  ├── clé privée  --------X--> (jamais envoyée)
-  └── clé publique -----> ~/.ssh/authorized_keys
 
-ssh user@IP  --> vérification clé --> accès accordé
-```
+- Empêche toute connexion par mot de passe
 
 ---
 
-## 10. Résumé
+## 10. Résumé sécurité (niveau professionnel)
 
-* `ssh-keygen` : génère la paire de clés
-* `ssh-copy-id` : installe la clé publique
-* `ssh -i` : force l'utilisation d'une clé
-* Clé privée = secrète, clé publique = partageable
+- SSH utilise la cryptographie asymétrique
+- Le serveur ne stocke **jamais la clé privée**
+- Une seule permission incorrecte = clé refusée
+- `ssh -v` est l’outil standard de diagnostic
 
+---
 
+## 11. Conclusion
+
+Si SSH demande encore un mot de passe :
+> La clé n’est pas acceptée par le serveur.
+
+La correction passe **toujours** par :
+1. Clé correcte
+2. Permissions strictes
+3. Bon utilisateur
+4. Debug SSH
