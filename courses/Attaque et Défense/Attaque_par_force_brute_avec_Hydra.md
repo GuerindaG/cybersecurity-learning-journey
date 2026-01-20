@@ -155,7 +155,7 @@ Exemples :
 ### 5. Exemple de commandes
 
 #### Hydra (attaque en ligne)
-```bash
+```
 hydra -l molly -P rockyou.txt 10.65.167.78 ssh
 ````
 
