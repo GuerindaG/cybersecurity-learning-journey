@@ -34,20 +34,7 @@ d’attaque est un modèle reconnaissable ou une “empreinte” qui permet à u
 observée à ce modèle.* ), soit sur la détection d’anomalies par rapport à un comportement normal. Lorsqu’un schéma suspect est identifié, le NIDS génère
 des alertes et des logs qui peuvent être envoyés à un SIEM pour permettre au SOC d’analyser l’incident et de décider des actions à prendre.
 
-Trafic réseau
-      ↓
-Capture des paquets
-      ↓
-Reconstitution des flux
-      ↓
-Décodage protocoles
-      ↓
-Moteur de règles / Anomalies
-      ↓
-Alertes + Logs
-      ↓
-SIEM / SOC
-
+Trafic réseau -> Capture des paquets -> Reconstitution des flux -> Décodage protocoles -> Moteur de règles / Anomalies -> Alertes + Logs -> SIEM / SOC
 
 ## 3.2 HIPS: Host-based Intrusion Detection System
 
