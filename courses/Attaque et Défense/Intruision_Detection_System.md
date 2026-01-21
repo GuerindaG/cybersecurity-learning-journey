@@ -25,7 +25,7 @@ en surveillant les activités du réseau ou du système à la recherche de compo
 
 **Exemples d'outils NIDS :** Snort, Suricata, Zeek (Bro)
 
-### 3.1.a Comment fonctionne un NIDS ?
+#### 3.1.a Comment fonctionne un NIDS ?
 
 Un NIDS fonctionne comme un observateur passif du réseau : il est placé à un point stratégique pour copier le trafic réseau sans l’interrompre,
 puis capture les paquets qui circulent. Il reconstitue les communications complètes à partir des paquets, décode les protocoles (HTTP, DNS, SSH, 
@@ -36,7 +36,7 @@ des alertes et des logs qui peuvent être envoyés à un SIEM pour permettre au 
 
 Trafic réseau -> Capture des paquets -> Reconstitution des flux -> Décodage protocoles -> Moteur de règles / Anomalies -> Alertes + Logs -> SIEM / SOC
 
-## 3.2 HIPS: Host-based Intrusion Detection System
+### 3.2 HIPS: Host-based Intrusion Detection System
 
 Un HIDS (Host-based Intrusion Detection System) est un système de détection d'intrusion installé directement sur un appareil spécifique
 (serveur, ordinateur) pour surveiller son activité interne (journaux système, intégrité des fichiers, processus) et détecter les anomalies ou les accès
@@ -44,7 +44,7 @@ non autorisés, agissant comme une sentinelle locale pour alerter sur des menace
 
 **Exemples d'outils NIDS :** OSSEC, Wazuh, Tripwire
 
-## 3.2.a Comment fonctionne un HIDS ?
+#### 3.2.a Comment fonctionne un HIDS ?
 
 Un HIDS (Host Intrusion Detection System) fonctionne en étant installé directement sur une machine (serveur ou poste) afin de surveiller en continu l’activité du système. Il analyse les fichiers critiques, les logs, les processus, les comptes utilisateurs et les configurations, puis compare les événements observés à des signatures d’attaques connues ou à un comportement normal attendu. Lorsqu’il détecte une modification suspecte ou une activité anormale (par exemple une tentative d’escalade de privilèges ou une altération de fichiers système),
 il génère des alertes et des journaux, qui peuvent être envoyés à un SIEM afin de permettre au SOC d’identifier, analyser et traiter l’incident.
