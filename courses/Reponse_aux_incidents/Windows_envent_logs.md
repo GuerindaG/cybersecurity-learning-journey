@@ -1,5 +1,5 @@
 ## 1- Windows event logs
-
+[Microsoft](https://learn.microsoft.com/fr-fr/windows/win32/msi/event-logging)
 Le journal des événements Windows (Windows Event Log) est une fonctionnalité système intégrée qui enregistre automatiquement et
 chronologiquement les activités, erreurs, avertissements et informations survenus sur l'ordinateur. Il permet aux administrateurs 
 de diagnostiquer les pannes, surveiller la sécurité et auditer les comportements applicatifs via un outil appelé l'Observateur d'événements.
@@ -15,7 +15,7 @@ de diagnostiquer les pannes, surveiller la sécurité et auditer les comportemen
 - **Source :** Les données proviennent du système d'exploitation, des services et des applications installées.
 
 ## 2- Event id
-
+[Microsoft](https://learn.microsoft.com/fr-fr/windows-server/identity/ad-ds/plan/appendix-l--events-to-monitor)
 Un ID d'événement (Event ID) est un numéro unique attribué par le système d'exploitation Windows ou des applications pour identifier précisément le type d'événement survenu (erreur, avertissement, information) dans les journaux système. 
 Ils permettent aux administrateurs de diagnostiquer rapidement des problèmes de sécurité, des pannes ou des changements de configuration.
 
@@ -41,7 +41,7 @@ Pour consulter ces codes, ouvrez l'Observateur d'événements en tapant **eventv
 - Sysmon : Outil Microsoft pour une surveillance avancée des processus.
 
 ## 3- Sysmon
-
+[Microsoft](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon)
 Sysmon (System Monitor) est un service système Windows et un pilote de périphérique avancé, développé par Sysinternals, qui surveille et enregistre l'activité détaillée du système dans le journal des événements Windows. 
 Il est essentiel pour la détection des menaces, la sécurité et la criminalistique (forensics).
 
