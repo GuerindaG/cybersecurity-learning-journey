@@ -10,9 +10,9 @@ de diagnostiquer les pannes, surveiller la sécurité et auditer les comportemen
 - Niveaux de gravité : Les journaux classent les événements par "**Information**", "**Avertissement**" ou "**Erreur**".
 - Contenu détaillé : Chaque entrée contient la date, l'heure, la source de l'événement et un ID spécifique pour le dépannage.
 
-**Utilité :** Crucial pour résoudre les problèmes techniques, analyser les plantages et assurer la sécurité du système.
-**Accès :** Accessible en faisant un clic droit sur le bouton Démarrer et en choisissant « Observateur d'événements ».
-**Source :** Les données proviennent du système d'exploitation, des services et des applications installées.
+- **Utilité :** Crucial pour résoudre les problèmes techniques, analyser les plantages et assurer la sécurité du système.
+- **Accès :** Accessible en faisant un clic droit sur le bouton Démarrer et en choisissant « Observateur d'événements ».
+- **Source :** Les données proviennent du système d'exploitation, des services et des applications installées.
 
 ## 2- Event id
 
