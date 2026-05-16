@@ -53,7 +53,7 @@ Je ne me considère pas comme une experte, mais cette expérience m’a permis d
 
 ## Difficultés et apprentissages clés
 
-- Certains flags étaient particulièrement **cachés ou complexes** → j’ai dû combiner **documentation, tests itératifs et conseils d’@foundhack**.  
+- Certains flags étaient particulièrement **cachés ou complexes** → j’ai dû combiner **documentation, tests itératifs **.  
 - Les labs m’ont confronté à des situations où **la théorie seule ne suffisait pas**, renforçant ma capacité à **résoudre des problèmes étape par étape**.  
 - Travailler sur un challenge quotidien m’a appris la **discipline, la rigueur et la gestion du temps**.
 
